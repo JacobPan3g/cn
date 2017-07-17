@@ -11,6 +11,8 @@ brief-intro: 猿修地，时光机
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jacobpan3g.github.io" # the base hostname & protocol for your site
 
+motto: Follow Excellence. Success will chase you.
+
 description_footer: 时光沉淀于此！
 
 permalink: /:year/:month/:day/:title/
