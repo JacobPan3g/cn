@@ -85,7 +85,7 @@ gitment.render('gitmentContainer');
 
 2. 点击`Login with GitHub`后，使用自己的github账号登录后，
 就可以在上面错误信息处看到一个`Initialize Comments`的按钮，如下图所示：
-![InitBtn]({{ BASE_PATH }}/img/gitment-in-jekyll.png)
+![InitBtn](https://jacobpan3g.github.io/img/gitment-in-jekyll.png)
 (ps: 由于要求回调URL和当前地址一样，故第2步不能在本地调试，
 需把代码先上传再调试)
 
