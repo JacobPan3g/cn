@@ -25,7 +25,7 @@ tag: CommentSystem
 
 综上，国内几个比较主流的评论系统目前都无法在Github Pages上的个人博客使用，
 后面我发现了gitment，一款由国内大神imsun开发的基于github issues的评论系统,
-具体介绍请看项目主页[github.com/imsun/gitment](https://github.com/imsun/gitment)。
+具体介绍请看项目主页[( github.com/imsun/gitment )](https://github.com/imsun/gitment)。
 
 目前我已经成功把gitment应用到了自己的Github pages个人博客里，过程中碰了一些壁,
 同时发现网上关于gitment的介绍并不多，故写一篇总结，希望可以帮助到大家。
@@ -84,14 +84,14 @@ gitment.render('gitmentContainer');
 有看到以下错误`Error: Comments Not Initialized`，提示该篇博文的评论系统还没初始化
 
 2. 点击`Login with GitHub`后，使用自己的github账号登录后，
-就可以在上面错误信息处看到一个`Initialize Comments`的按钮，如下图所示：
-![InitBtn](https://jacobpan3g.github.io/img/gitment-in-jekyll.png)
+就可以在上面错误信息处看到一个`Initialize Comments`的按钮
 (ps: 由于要求回调URL和当前地址一样，故第2步不能在本地调试，
 需把代码先上传再调试)
 
 3. 点击`Initialize Comments`按钮后，就可以开始对该篇博文开始评论了，
 同时也可以在对应的github仓库看到相应的issue
 
+![InitBtn](https://jacobpan3g.github.io/img/gitment-in-jekyll.png)
 
 ## 4. 一些问题
 
@@ -109,6 +109,6 @@ gitment.render('gitmentContainer');
 
 ---
 
-好了，gitment使用介绍到这里，大家若遇到什么问题尽管在下面留言，或者在我的个人博客
+> 好了，gitment使用介绍到这里，大家若遇到什么问题尽管在下面留言，或者在我的个人博客
 [( jacobpan3g.github.io/cn )](https://jacobpan3g.github.io/cn/2017/07/17/gitment-in-jekyll)
 留言，上面使用的评论系统就是gitment，我会抽空一一作出回答。
