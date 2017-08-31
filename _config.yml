@@ -8,8 +8,8 @@
 # Site settings
 title: Ja.Code
 brief-intro: 猿修地，时光机
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://jacobpan3g.github.io" # the base hostname & protocol for your site
+#baseurl: "" # the subpath of your site, e.g. /blog
+#url: "https://jacobpan3g.github.io" # the base hostname & protocol for your site
 
 motto: Follow Excellence. Success will chase you.
 

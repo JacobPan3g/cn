@@ -21,12 +21,9 @@ tag: weibo
 https://api.weibo.com/oauth2/authorize?client_id=xxxxx&redirect_uri=http%3A%2F%2Fwww.weibo.com&response_type=code&forcelogin=true
 ```
 
-其中`client_id`和`redirect_uri`是必须的，`client_id`是app key，
-`redirect_uri`是回调地址，都必须和应用所配置的相一致.
-我这里的`redirect_uri`填了`http://www.weibo.com`
+其中`client_id`和`redirect_uri`是必须的，`client_id`是app key， `redirect_uri`是回调地址，都必须和应用所配置的相一致.  我这里的`redirect_uri`填了`http://www.weibo.com`
 
-在页面中填入登录的新浪微博账号和密码，按确定后便会跳转到
-`http://www.weibo.com?code=xxxxxxxxxx`，这里的参数`code`就是我们所需的
+在页面中填入登录的新浪微博账号和密码，按确定后便会跳转到 `http://www.weibo.com?code=xxxxxxxxxx`，这里的参数`code`就是我们所需的
 
 ## 3. 获取access token
 
@@ -37,9 +34,7 @@ curl -d "client_id=xxx&client_secret=xxx&grant_type=authorization_code&redirect_
 
 其中，`client_secret`是app secret，`code`是上一步获取到的.
 
-这一步的返回如下:
-`{"access_token":"xxxx", ...}`
-这就是我们所需的access token.
+这一步的返回如下: `{"access_token":"xxxx", ...}` 这就是我们所需的access token.
 
 (ps: 若是用curl模拟get，直接 curl "http://abc.com?p1=a&p2=b")
 
@@ -53,6 +48,4 @@ https://api.weibo.com/2/statuses/user_timeline.json?access_token=xxxx
 
 ---
 
-以上就是如何使用浏览器模拟微博的oauth2认证过程，省去使用sdk，可以直接用
-在我们的应用中，但是，有一个小问题我想不明白，第二步获取的code必须是通过
-回调uri的参数处获得，不知道各sdk里是如何获取到这个code的？
+以上就是如何使用浏览器模拟微博的oauth2认证过程，省去使用sdk，可以直接用 在我们的应用中，但是，有一个小问题我想不明白，第二步获取的code必须是通过 回调uri的参数处获得，不知道各sdk里是如何获取到这个code的？
