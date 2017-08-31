@@ -43,6 +43,14 @@ initrd (hd0,7)/initrd.lz
 
 重启电脑，留意开机界面，会发现多了一个`NeoGrub`选项，选中它，就可以进入ubuntu的安装镜像了. (ps: 如果本来已经双系统，开机时选择启动windows,然后在windows启动页面再选择`NeoGrub`引导ubuntu镜像)。
 
+在开始安装之前，还有最后一步十分重要的别忘了做 —— "卸载`isodevice`分区"
+```
+# umount -l /dev/isodevice
+```
+若没有卸载iso分区，安装过程会报错的，这一步也是硬盘安装所独有的，大家一定别忘了这一步。这个分区的名字可以通过`# fdisk -l | grep iso`来查看。
+
+---
+
 以上步骤我曾经成功在windows 8下安装Ubuntu 12.04和16.04，也尝试过用来安装Centos 6.4, 故理论上上述步骤可以用来windows下硬盘安装一般的linux系统。
 
 后面就可以根据自己的喜好分区，安装ubuntu了，Enjoy yourself！
