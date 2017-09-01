@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  在Jekyll博客添加评论系统：gitment篇
-date:   2017-07-17 15:31:01 +0800
-categories: jekyll
-tag: CommentSystem
+categories: blog
+tags: jekyll gitment
+author: Jacob Pan
 ---
 
 * content
@@ -92,7 +92,9 @@ gitment.render('gitmentContainer');
 
 ---
 
-> 好了，gitment使用介绍到这里，大家若遇到什么问题尽管在下面留言，或者在我的个人博客 [( jacobpan3g.github.io/cn )][article]留言，上面使用的评论系统就是gitment，我会抽空 一一作出回答。
+好了，gitment使用介绍到这里，大家若遇到什么问题尽管在下面留言，或者在我的个人博客 [( jacobpan3g.github.io/cn )][article]留言，上面使用的评论系统就是gitment，我会抽空 一一作出回答。
+
+> Jacob Pan [( jacobpan3g.github.io/cn )](http://jacobpan3g.github.io/cn)
 
 
 [blog]: https://jacobpan3g.github.io/cn "我的博客主页"

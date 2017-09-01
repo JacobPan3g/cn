@@ -2,8 +2,9 @@
 layout: post
 title:  《围城》外面的人想进去，里面的人想出来
 date:   2012-08-11 14:54:01 +0800
-categories: 书评
-tag: 小说
+categories: book
+tag: novel
+author: Jacob Pan
 ---
 
 * content
@@ -33,5 +34,5 @@ tag: 小说
 
 中国式的婚姻，门当户对的潜规则。我们处于这个国境里，就逃不出这国境里的一切世俗。但愿，我的婚姻，不是这样的一座围城。
 
-
+---
 > Jacob Pan [( jacobpan3g.github.io/cn )](http://jacobpan3g.github.io/cn)

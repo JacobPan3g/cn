@@ -1,9 +1,10 @@
 ---
 layout: post
-title:  Win如何硬盘安装Ubuntu
+title:  Windows下如何硬盘安装Ubuntu
 date:   2017-08-31 16:31:01 +0800
 categories: ubuntu
-tag: linux
+tags: linux install
+author: Jacob Pan
 ---
 
 * content
@@ -45,9 +46,9 @@ initrd (hd0,7)/initrd.lz
 
 在开始安装之前，还有最后一步十分重要的别忘了做 —— "卸载`isodevice`分区"
 ```
-# umount -l /dev/isodevice
+# umount -l /isodevice
 ```
-若没有卸载iso分区，安装过程会报错的，这一步也是硬盘安装所独有的，大家一定别忘了这一步。这个分区的名字可以通过`# fdisk -l | grep iso`来查看。
+若没有卸载iso分区，安装过程会报错的，这一步也是硬盘安装所独有的，大家一定别忘了这一步。这个分区的名字可以通过`$ mount | grep isodevice`来查看。
 
 ---
 
