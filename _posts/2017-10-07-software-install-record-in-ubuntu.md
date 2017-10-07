@@ -24,13 +24,5 @@ author: Jacob Pan
 # apt-get install openssh-server
 ```
 
-
-## 3. svn
-
-```
-# apt-get install subversion
-```
-
-
 ---
 > Jacob Pan [( jacobpan3g.github.io/cn )](http://jacobpan3g.github.io/cn)
