@@ -19,7 +19,7 @@ make[3]: *** [kernel/timeconst.h] Error 255
 /tmp/GmGWZPad:953: recipe for target 'kernel' failed
 ```
 
-根据上述提示，直接把内核源码中`./kernel/timeconst.pl`第373行的if条件中的`!defined(@val)`改成`@val`，再次编译就可通过了.
+根据上述提示，直接把内核源码中`./kernel/timeconst.pl`第373行的if条件中的`defined(@val)`改成`@val`，再次编译就可通过了.
 
 
 ---
