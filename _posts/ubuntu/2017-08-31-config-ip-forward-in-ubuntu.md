@@ -3,7 +3,7 @@ layout: post
 title:  Ubuntu下如何映射端口
 date:   2017-08-31 15:31:01 +0800
 categories: ubuntu
-tag: linux
+tag: config
 ---
 
 * content

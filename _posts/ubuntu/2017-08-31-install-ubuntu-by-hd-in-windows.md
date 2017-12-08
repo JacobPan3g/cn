@@ -3,7 +3,7 @@ layout: post
 title:  Windows下如何硬盘安装Ubuntu
 date:   2017-08-31 16:31:01 +0800
 categories: ubuntu
-tags: linux install
+tags: install
 author: Jacob Pan
 ---
 

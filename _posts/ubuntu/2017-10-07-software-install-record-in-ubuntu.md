@@ -3,7 +3,7 @@ layout: post
 title:  在Ubuntu下一些软件安装记录
 date:   2017-10-07 16:44:01 +0800
 categories: ubuntu
-tags: linux
+tags: config
 author: Jacob Pan
 ---
 

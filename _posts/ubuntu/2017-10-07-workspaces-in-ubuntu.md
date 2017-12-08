@@ -3,7 +3,7 @@ layout: post
 title:  Ubuntu16.04使用工作区
 date:   2017-10-07 18:00:01 +0800
 categories: ubuntu
-tags: linux
+tags: config
 author: Jacob Pan
 ---
 

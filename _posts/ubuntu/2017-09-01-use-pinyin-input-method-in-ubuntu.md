@@ -3,7 +3,7 @@ layout: post
 title:  在Ubuntu下使用拼音输入法
 date:   2017-09-01 12:54:01 +0800
 categories: ubuntu
-tags: linux
+tags: config
 author: Jacob Pan
 ---
 

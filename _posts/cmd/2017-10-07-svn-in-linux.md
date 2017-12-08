@@ -2,8 +2,8 @@
 layout: post
 title:  Linux使用svn
 date:   2017-10-07 18:15:01 +0800
-categories: svn
-tags: linux
+categories: cmd
+tags: svn
 author: Jacob Pan
 ---
 
