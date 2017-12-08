@@ -2,8 +2,8 @@
 layout: post
 title:  Linux使用samba实现与Windows文件共享--最简单的方法
 date:   2017-10-07 16:20:01 +0800
-categories: config
-tags: linux
+categories: linux
+tags: config
 author: Jacob Pan
 ---
 

@@ -12,6 +12,7 @@ author: Jacob Pan
 
 
 通过一下命令，可以一次性把`dir/`下多个gbk文件转成utf-8文件，并放在指定目录下：
+
 ```
 $ find <dir> -type d -exec mkdir -p <utf dir>/{} \;
 $ find <dir> -type f -exec bash -c "iconv -f GBK -t UTF-8 {} -o <utf dir>/{}" \;

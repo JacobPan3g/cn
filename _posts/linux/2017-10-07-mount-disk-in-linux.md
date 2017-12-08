@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  Linux下挂载硬盘
-date:   2017-10-07 15:31:01 +0800
-categories: config
-tags: linux
+categories: linux
+tags: config
 author: Jacob Pan
 ---
 
