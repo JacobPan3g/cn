@@ -10,7 +10,7 @@ author: Jacob Pan
 {:toc}
 
 
-syslog是linux下内置的一种log工具，十分实用。实现了log到文件，log到内存，循环打印log，log优先级，开发程序过程借助其来定位bug非常方便，比单纯的`printf()`强大多了。
+syslog是linux下内置的一种log工具，十分实用。实现了log到文件，log到内存，循环打印log，log优先级，开发程序过程借助其来定位bug非常方便，比单纯的`printf()`强大多了，特别对于输出被重定向的后台进程。
 
 这里我会采用busybox 1.19.4的syslog来示范，由于这个版本是专门给嵌入式设备使用的，因此有一些功能被精简掉了，如syslog.conf，该版本不支持配置文件，所有配置都在启动syslogd守护进程时通过参数输入。
 
