@@ -68,5 +68,31 @@ Ubuntu下
 大功告成，现在用windows文件浏览器就可以通过ip地址`\\192.168.XX.XX`访问你的linux文件了
 
 
+## 问题及解决方法
+
+### win无法访问
+
+在lubuntu 14.04下发现用windows登录不上，linux下使用smbclient能登录上
+
+在windows输入ip地址登录不上，提示“\XXX\XXX is not accessible. You might not have permission to use this network resource.”，在linux使用smbclient
+
+```shell
+smbclient -L 192.168.0.xx       # 列出共享文件夹
+smbclient \\192.168.0.xx\xxx    # 访问文件夹
+```
+链接成功后，就可以使用`ls`，`cd`等命令访问共享文件夹了。
+
+查看samba的log，在`/var/log/samba/log.smbd`，发现有下面错误提示
+
+```
+Bad talloc magic value - access after free
+```
+安装一下libtalloc2，重启smbd就能解决
+
+```
+sudo apt-get install libtalloc2
+```
+
+
 ---
 > Jacob Pan [( jacobpan3g.github.io/cn )](http://jacobpan3g.github.io/cn)

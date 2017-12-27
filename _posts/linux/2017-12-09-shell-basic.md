@@ -36,6 +36,8 @@ author: Jacob Pan
 - -o 或
 - ! 非
 
+更多条件判断，可见[Shell脚本IF条件判断和判断条件总结](http://www.jb51.net/article/56553.htm)
+
 
 ## for循环
 
