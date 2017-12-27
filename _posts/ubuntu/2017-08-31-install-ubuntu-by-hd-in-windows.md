@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Windows下如何硬盘安装Ubuntu
+title:  Windows7下如何硬盘安装Ubuntu
 date:   2017-08-31 16:31:01 +0800
 categories: ubuntu
 tags: install
@@ -11,7 +11,7 @@ author: Jacob Pan
 {:toc}
 
 
-一般来说，折腾双系统是每一位程序猿都有过的经历，如何在windows下安装双系统ubuntu呢？今天来给大家介绍一下如何直接在windows硬盘安装ubuntu，而不需要使用U盘或者光盘，或外置硬盘。
+一般来说，折腾双系统是每一位程序猿都有过的经历，如何在windows7下安装双系统ubuntu呢？今天来给大家介绍一下如何直接在windows7硬盘安装ubuntu，而不需要使用U盘或者光盘，或外置硬盘。
 
 
 ## 1. 准备好ubuntu iso镜像

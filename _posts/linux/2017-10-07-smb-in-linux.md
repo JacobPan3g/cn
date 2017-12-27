@@ -51,6 +51,11 @@ Ubuntu下
 ```
 同理，这里的`jacob`改成你自己的用户，必须要和上述配置的`valid users`那一项里的内容相一致
 
+```
+# smbpasswd -x jacob
+```
+通过这条命令可以删除用户，更多的选项可见`smbpasswd -h`
+
 
 ## 4. 重启smbd
 
