@@ -47,6 +47,8 @@ ps: `<tmux_prefix>`是在tmux会话中要执行指令时的前缀，默认是`<c
 <tmux_profix>,      # 重命名plane
 ```
 
+更多请见[Tmux 入门介绍](http://blog.csdn.net/skykingf/article/details/46345057)
+
 
 > Jacob Pan [( jacobpan3g.github.io/cn )](http://jacobpan3g.github.io/cn)
 
