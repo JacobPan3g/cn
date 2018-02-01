@@ -37,6 +37,8 @@ ps: qt5.9是长期支持版本，不过比较大，要2G，大家可以选择按
 
 若这已安装的qt版本和比那一起，但这两个页面里没有出现，可以通过右边的`Add`来添加。
 
+![Compilers][compilers]
+
 ps: 这里需要提一下“Kits”标签页，这个是可以自定义"qt版本+编译器"组合，即当你系统安装多个不同qt版本或不同的编译器，可以通过kits设置你需要的组合，用来编译qt应用。
 
 
@@ -46,6 +48,7 @@ ps: 这里需要提一下“Kits”标签页，这个是可以自定义"qt版本
 
 点击左下角的三角形编译运行，弹出一个空白的窗口，就证明qt环境搭建成功。
 
+![Example][example]
 
 ## 资料
 
@@ -60,3 +63,5 @@ ps: 这里需要提一下“Kits”标签页，这个是可以自定义"qt版本
 > Jacob Pan [( jacobpan3g.github.io/cn )](http://jacobpan3g.github.io/cn)
 
 [buildRun]: https://jacobpan3g.github.io/img/qt-in-windows-buildRun.png
+[compilers]: https://jacobpan3g.github.io/img/qt-compilers.png
+[example]: https://jacobpan3g.github.io/img/qt-example.png

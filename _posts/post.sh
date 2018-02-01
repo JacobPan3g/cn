@@ -1,5 +1,7 @@
 #! /bin/sh
 
+date="date: `date +%Y-%m-%d`"
+
 usage()
 {
     echo "post [-hac]"
@@ -13,6 +15,7 @@ title:
 categories: 
 tags: 
 author: Jacob Pan
+$date
 ---
 
 * content
@@ -24,12 +27,13 @@ author: Jacob Pan
 " > $1
 }
 
-while getopts "hac:" opt
+while getopts "hac:u:" opt
 do
     case $opt in
         h) usage;;
         a) find . -name "*.md";;
         c) create $OPTARG;;
+        u) sed -i "/^date: 20/c $date" $OPTARG;;
         ?) echo "invalid option";;
     esac
     shift

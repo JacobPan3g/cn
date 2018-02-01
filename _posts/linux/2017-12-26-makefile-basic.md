@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Makefile基本
+title: Makefile笔记
 categories: linux
 tags: makefile
 author: Jacob Pan
@@ -107,6 +107,13 @@ $(addprefix <suffix>,<names...>)
 
 ```
 include makefile.in
+```
+
+## 警告和错误信息
+
+```
+$(warning ...)      // 打印warning信息
+$(error ...)        // 打印error信息，并立马退出make
 ```
 
 

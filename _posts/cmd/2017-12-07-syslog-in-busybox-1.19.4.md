@@ -140,7 +140,7 @@ logger是syslog提供的shell工具，通过logger可以设置优先级，进程
 
 - syslogd守护进程无法启动
 
-  后面再busybox源码添加打印，原来是syslogd守护进程的PID路径问题，源码中默认PID路径是`/var/run/syslogd.pid`，在我开发的嵌入式设备中文件系统是只读的，只有`/tmp`可写，把PID路径改成`/tmp/syslogd.pid`就syslogd就可以运行了。
+  在busybox源码添加打印，经分析，原来是syslogd守护进程的PID路径问题，源码中默认PID路径是`/var/run/syslogd.pid`，在我开发的嵌入式设备中文件系统是只读的，只有`/tmp`可写，把PID路径改成`/tmp/syslogd.pid`就syslogd就可以运行了。
 
 
 > Jacob Pan [( jacobpan3g.github.io/cn )](http://jacobpan3g.github.io/cn)
