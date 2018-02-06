@@ -19,6 +19,13 @@ du -ah --max-depth=1
 - `-h` 人类能读懂的方式，会把数字转化成KB, MB等单位
 - `--max-depth=1` 只显示1层
 
+## date命令
+
+```shell
+date +%Y-%m-%d
+```
+以上命令可以输出诸如"2018-02-06"的日期，其中有更多的`%X`可参考`man date`，在所有这些格式化字符前需要有一个`+`
+
 
 > Jacob Pan [( jacobpan3g.github.io/cn )](http://jacobpan3g.github.io/cn)
 

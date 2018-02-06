@@ -27,6 +27,8 @@ ps: 以上两条命令都可以对app或者命令行可执行文件进行检测�
 
 对macOS命令好工具的工程签名，不需要制定Bundle identity(即com.xxx.xxx)和provisioning profile，只需要填写Code Signing Identity(证书)即可。
 
+若输入了provisioning profile签名，run时会提示"error: ::posix_spawnp (...) err = Permission denied (0x0000000d)"错误
+
 
 ## 使用命令行进行签名
 

@@ -251,7 +251,7 @@ ctrl-click点击(相当于右击)IB里dock的Window对象，把弹出列表中�
 
 ### 开发文档base应用
 
-> NSTask - ZIPspector
+> ZIPspector
 
 创建Document-Based Application需要制定后缀，首先在project创建页面需要输入后缀，然后在Targget-Info-Document Types中需要选定角色"Viewer/Editor"和填入UTI到identifier处。
 
@@ -259,7 +259,7 @@ ctrl-click点击(相当于右击)IB里dock的Window对象，把弹出列表中�
 
 ### 设置TableViewCell为不可编辑
 
-> NSTask - ZIPspector
+> ZIPspector
 
 在IB设置UI控件属性需要先选中，在右边的Attribute Inspector的第一行可以看到当前所选择的控件。
 
@@ -269,15 +269,100 @@ ctrl-click点击(相当于右击)IB里dock的Window对象，把弹出列表中�
 
 ### NSTableView显示数据只需要DataSource
 
-> NSTask - ZIPspector
+> ZIPspector
 
 原来NSTableView显示数据只需要把其它类指定为DataSource，而不需要指定Delegate，只有当需要对用户选中Item时响应才需要指定后者。
 
 ### NSTableView条目数正常内容不正常
 
-> NSTask - ZIPspector
+> ZIPspector
 
 当dataSource对象里使用`tableView:objectValueForTableColumn:row:`提供内容时，一定要记得把TableView设定成Cell Base，而不是View Base，不然内容会无法填充。
+
+### Toggle类型Button
+
+> ZIPspector - iPing
+
+原来这种点击一下就变成另外一些内容的按钮时Toggle Button，如看视频的开始暂停按钮，在Inspector把type改为Toggle，填入alternate内容，把State改成Off即可。
+
+### 基于NIB开发的框架图例说明
+
+> ZIPspector - iPing - Figure 36.8 Object Diagram
+
+这里提供了一种思路用来画MacOS基于NIB或者Storyboard开发的程序的框架画法，因为很多connection在IB里完成，代码里根本看不到，所以这种图例用来阐述程序的逻辑非常有用。
+
+### NSPipe和NSFileHandle
+
+> ZIPspector - iPing
+
+NSPipe是用来接收NSTask的stdout:
+
+```
+NSPipe *pipe = [[NSPipe alloc] init];
+[task setStandardOutput:pipe];
+```
+NSFileHandle是NSPipe对象返回的一个对象:
+
+```
+NSFileHandle *fh = [pipe fileHandleForReading];
+```
+可以用来读取NSPipe里面的数据，有两种读法：
+
+1. 一种是一次性全部读完，如在ZIPspector例子中
+
+   ```
+   [task waitUntilExit];
+   NSData *data = [[pipe fileHandleForReading] readDataToEndOfFile];
+   ```
+   这种方法需要等task执行完成后才能确保data被全部读出来。
+
+2. 另一种是task每往pipe写一次就读一次，需要借助NSNotification
+
+   ```
+   NSFileHandle *fh = [pipe fileHandleForReading];
+   NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+   [nc removeObserver:self];
+   [nc addObserver:self selector:@selector(dataReady:)
+              name:NSFileHandleReadCompletionNotification object:fh];
+
+   [task launch];
+   [fh readInBackgroundAndNotify];
+   ```
+   其中`[fh readInBackgroundAndNotify]`是去读fileHandle，读完后产生`NSFileHandleReadCompletionNotification`，这个函数是一次性的，因此在绑定notification的`dataReay:`方法需要再次调用fh的readInBackgroundAndNotify。
+
+### Task的NSTaskDidTerminateNotification
+
+> ZIPspector - iPing
+
+iPing例子中用到了两个Notification，第一个是NSFileHandleReadCompletionNotification，当fileHandle的readInBackgroundAndNotify方法读完后发布。
+
+另外一个是Task的NSTaskDidTerminateNotification，当task完成后会发布，利用这个可以在task完成后获取task的执行状态或者做另外一些动作。
+
+### Task的返回状态
+
+> ZIPspector
+
+```
+int status = [task terminationStatus];
+if (status != 0) {
+    ...
+}
+```
+
+通过上述方法可以获取task的返回状态，ZIPspector例子还进一步使用了返回Error的方法
+
+### 用NSTextStorage拼接字符串
+
+> ZIPspector - iPing
+
+在iPing例子中，直接使用NSTextView的NSTextStorage对象，把从pipe通过NSFileHandle读到的数据直接添加到结尾：
+
+```
+NSString *s = [[NSString alloc] initWithData:d encoding:NSUTF8StringEncoding];
+NSTextStorage *ts = [outputView textStorage];
+[ts replaceCharactersInRange:NSMakeRange([ts length], 0) withString:s];
+```
+第一行是从NSData转换成NSString，第三行使用替代函数替代NSRange范围的字符，这里的NSRange是指向数据末尾的，且长度为0，即直接把字符添加到原内容的结尾。
 
 
 > Jacob Pan [( jacobpan3g.github.io/cn )](http://jacobpan3g.github.io/cn)
