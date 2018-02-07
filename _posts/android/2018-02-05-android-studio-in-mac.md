@@ -47,15 +47,56 @@ java -version
 
 经查实，intel HAXM已经安装，目前还没有找到解决方法，决定绕开这个问题，不使用AVD调试程序，这就是为什么上文AS配置时我不选择安装android虚拟设备的原因，解决方案有两个：
 
-1. 直接用真机调试
+#### 1. 直接用真机调试
 
-   打开真机的USB调试，有些机型需要在设置里的系统版本号点击4次开启"开发者选项"，里面才有USB调试的开启按钮。把真机连接PC，在编译App后在Connected Device下选中该设备进行调试。
+打开真机的USB调试，有些机型需要在设置里的系统版本号点击4次开启"开发者选项"，里面才有USB调试的开启按钮。把真机连接PC，在编译App后在Connected Device下选中该设备进行调试。
 
-2. 使用Genymotion调试
+#### 2. 使用Genymotion调试
 
-   Genymotion是一款很快的android虚拟机，下载安装后，在Settings - ADB下，选择"Use custom Android SDK tools"并填入sdk路径，该路径可以在AS的Preferences - Apperarance & Behavior - System Settings - Android SDK下看到。
+Genymotion是一款很快的android虚拟机，下载安装后，在Settings - ADB下，选择"Use custom Android SDK tools"并填入sdk路径，该路径可以在AS的Preferences - Apperarance & Behavior - System Settings - Android SDK下看到。
 
-   然后开启Genymotion虚拟机，编译项目时就可以在Connected Device下选择该虚拟设备调试了。
+然后开启Genymotion虚拟机，编译项目时就可以在Connected Device下选择该虚拟设备调试了。Genymotion是x86而不是arm框架的，很多应用安装不了，会提示不兼容。
+
+可以通过Genymotion-ARM-Translation把x86转换成arm框架，这个在网上可以下载
+
+1. 针对4.x的安卓版本
+
+   打开Genymotion后，直接把Genymotion-ARM-Translation_v1.1.zip直接拉进虚拟机，重启。
+
+2. 针对5.x的安卓版本
+
+   打开Genymotion后，把ARM_Translation_Lollipop.zip拉进去，然后使用adb输入命令:
+
+   ```
+   adb shell /system/etc/houdini_patcher.sh
+   ```
+   再重启虚拟机。
+
+#### 3. 使用夜神模拟器
+ 夜神模拟器有win版和mac版的，时arm框架的，使用起来也十分流畅，一些大型游戏和应用都能安装成功，运行起来也很流畅。
+
+和真机一样，在setting里打开"USB调试"，然后用sdk的adb通过以下命令连接该虚拟机
+
+```
+adb connect 127.0.0.1:62001
+```
+就可以通过`adb devices`就可以看到这个设备了。
+
+至于这个`62001`端口，可以通过以下命令获取
+
+```
+lsof -i tcp:62001
+```
+通过上面命令可以看到，占有该端口的进程是`VBoxHeadl`，通过下面命令可以在不知道端口时用来查询端口
+
+```
+lsof -i tcp | grep VBoxHeadl
+```
+但是若有多个VBoxHeadl进程，就难以辨别哪个时夜神模拟器的。
+
+通过上面的connect之后，就可以用夜神模拟器来调试App了。
+
+ps: 夜神模拟器里也包含adb，mac版在`Nox App Player.app/Contents/MacOS/`下，win版在`C:\Users\XXX\AppData\Roaming\Nox\bin`下。
 
 
 > Jacob Pan [( jacobpan3g.github.io/cn )](http://jacobpan3g.github.io/cn)
