@@ -27,5 +27,12 @@ date +%Y-%m-%d
 以上命令可以输出诸如"2018-02-06"的日期，其中有更多的`%X`可参考`man date`，在所有这些格式化字符前需要有一个`+`
 
 
+## 寻找命令的位置
+
+```shell
+which ls    # 返回 /bin/ls
+```
+
+
 > Jacob Pan [( jacobpan3g.github.io/cn )](http://jacobpan3g.github.io/cn)
 
