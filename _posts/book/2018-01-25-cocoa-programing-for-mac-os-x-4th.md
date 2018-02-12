@@ -151,6 +151,81 @@ call `terminate()` if quit
 - 输出：屏幕的显示
 
 
+## ch03 Objective-C
+
+### oc = c预编译器 + 库
+
+苹果用的不是gcc，而是clang/LLVM(Low Level Virtual Machine)，也是一个开源编译器
+
+### oc的变量都是指针，除了基本type
+
+> Creating and Using Instances
+
+除了int, char, float等c基本变量
+
+### 通常APP项目大写开头，命令行tool小写开头
+
+> Using Existing Classes
+
+### oc里很少出现对象复制
+
+> Using Existing Classes
+
+如NSMutableArray的`addObject:`是直接把指针添加到数组中，而不会复制对象。
+
+### NSLog()的Format和C的printf差不多
+
+> Using Existing Classes
+
+具体请见`Table 3.1 Possible Tokens in Objective-C Format Strings`
+
+### 不能直接在main.m里定义oc函数
+
+> Using Existing Classes
+
+oc函数要定义在以下上下文里
+
+```
+@implementation
+
+... 
+
+@end
+```
+经试验，也不能在main.h里定义其他C函数。
+
+### NSString可以保存多字节语言
+
+> Using Existing Classes
+
+C String只能保存ascii码，在处理多字节语言时很不方便，如中文，而NSString可以保存Unicode，不用担心本地化问题。
+
+### 往空对象发msg返回0
+
+> Sending Messages to nil
+
+官方能确定的，接受返回值的若是pointer，值为nil；若为int，值为0；其它类型不确定。
+
+### NSObject的description在打印对象时被调用
+
+> NSObject, NSArray, NSMutableArray,
+and NSString > NSObject
+
+在`NSLog(@"%@", ...)`和gdb中的`po`命令都会自动调用description方法。
+
+### NSObject的isEqual:方法
+
+> NSObject, NSArray, NSMutableArray,
+and NSString > NSObject
+
+对于对象，若没有重载isEqual:方法，以下两句相同，都是比较是否指向同一内存地址(即比较指针里的地址值)
+```
+a == b
+[a isEqual: b]
+```
+NSString的isEqual:已被重载，`[str1 isEqual: str2]`比较的是字符的内容，而不是`==`的比内存地址。
+
+
 ## ch05 (UI)Target/Action
 
 ### 对于UI控件视角的Target和Action
@@ -246,8 +321,29 @@ ctrl-click点击(相当于右击)IB里dock的Window对象，把弹出列表中�
 即IBOutlet NSTextField和Controller之间也是一种Delegate关系，NSTextField遵守某种Delegate，Controller可以通过调用Delegate里的方法，这些方法可以用来输出或输入。
 
 
-## ch36 NSTask
+## 34 Concurrency
 
+### NSTableView的DataSource
+
+> Multithreading > Simple Cocoa Background Threads
+
+在TableView的DataSouce里，填充的数组不能是
+
+```
+@property (weak) NSArray *results;
+```
+而需要定义成私有变量，这样才能让TableView加载成功。
+
+还有，发现DataSouce的`tableView:objectValueForTableColumn:row`会被调用很多次，这是为何呢？
+
+### BgThread Demo的补充
+
+> Multithreading > Simple Cocoa Background Threads
+
+对于Backgrond Thread，书里没有给出完整的Demo，我根据书忠的代码，写了一个完整的Demo，其中数据源的result需要定义成私有变量，如上一条笔记所说。
+
+
+## 36 NSTask
 
 ### 开发文档base应用
 
