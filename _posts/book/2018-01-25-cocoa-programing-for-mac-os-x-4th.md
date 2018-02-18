@@ -321,6 +321,68 @@ ctrl-click点击(相当于右击)IB里dock的Window对象，把弹出列表中�
 即IBOutlet NSTextField和Controller之间也是一种Delegate关系，NSTextField遵守某种Delegate，Controller可以通过调用Delegate里的方法，这些方法可以用来输出或输入。
 
 
+## 08 NSArrayController
+
+### NSDocument主要负责文件读写
+
+> Starting the RaiseMan Application
+
+Document-based程序工程会自动创建NSDocument子类
+
+### 引入Cocoa.h与Foundation.h的区别
+
+> Starting the RaiseMan Application
+
+`#import <Cocoa/Cocoa.h>`和`#import<Foundation/Foundation.h>`是有区别的，前者是包含MacOS所有库，包括GUI和oc；而后者只是oc的库。
+
+所以一些Model类，无需知道UI细节的，应该只包含Foundation.h，这样就能方便移植到命令行项目或ios项目
+
+### 绑定NSArrayController的Content Array
+
+> Starting the RaiseMan Application - RMDocument.xib
+
+在RaiseMan Demo中，通过下面binging动作，NSArrayController的增删查改就能直接操作到Document.h定义的employees数组中:
+
+在xib文件中，添加NSArrayController对象后都dock后，
+
+1. 在右侧窗口选择"Attributes Inspector"，在下面Object Controller填入每一项的类名：Person，并填入Person的两个成员变量到keys中，这里主要得益于oc可以通过Key-Value Coding来直接设置成员变量(ps: 需要把成员变量设成property)
+2. 在右侧窗口选择"Bindings Inspector"，设置Content Arry为File's Owner的employees(ps: employees是定义在Document.h的一个NSMutableArray对象)
+3. 把add和remove按钮直接分别connect到Dock中NSArrayController对象中已经实现的add:和remove:方法
+
+根据以上步骤，NSArrayController只存在于xib文件中，无需在代码中定义。
+
+### 通过Bindings为NSTableView Cell绑定显示内容
+
+> Starting the RaiseMan Application - RMDocument.xib
+
+在RaiseMan Demo中，通过Binding可以在xib中借助NSArrayController指定NSTableView Cell的显示内容:
+
+1. 选择第一列TableView Column，在Bind to选择Array Controller，并勾选；在Controller Key填入arrangedObjects，在Model Key Path填入personName(ps: 要显示的Person成员变量名)
+
+2. 同理，第二列Column也是在Binding设置与第一步同样的内容，只是Model Key Path填入另一个成员变量名expectedRaise皆可
+
+这样TableView就会通过NSArrayController获取内容并显示出来。
+
+### 为TableView Cell添加Number Formatter
+
+> Starting the RaiseMan Application - RMDocument.xib
+
+添加了Number Formatter后，在用户输入时会检查格式。
+
+Number Formatter是在Xcode 6.2是一个'#'的标识，注意与Text Fieldwith Number Formatter的区分，后者是一个Text Field。
+
+### 重载setNilValueForKey:来处理输入空内容异常
+
+> Starting the RaiseMan Application - Key-Value Coding and nil
+
+RaiseMan Demo中，当输入Raise为空时，因无法转换成float，会抛出以下异常并crash：
+
+```
+RaiseMan[1983:303] Exception detected while handling key input.
+RaiseMan[1983:303] [<Person 0x60000003b260> setNilValueForKey]: could not set nil as the value for the key expectedRaise.
+```
+从异常信息中也可以看到是setNilValueForKey:抛出的异常，setNilValueForKey:是NSObject定义的函数，通过定义Person类中该方法可以处理该异常，具体重载内容请见书中代码。
+
 ## 34 Concurrency
 
 ### NSTableView的DataSource
