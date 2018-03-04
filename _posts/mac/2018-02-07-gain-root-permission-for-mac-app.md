@@ -1,6 +1,7 @@
 ---
 layout: post
-title: MacOS App获取root权限
+subtitle: 2018-02-07-gain-root-permission-for-mac-app
+title: MacOS App代码提权
 categories: mac
 tags: root
 author: Jacob Pan
@@ -11,7 +12,7 @@ date: 2018-02-07
 {:toc}
 
 
-在MacOS App开发中，有一些操作需要root权限，需要弹出认证对话框让用户输入账号和密码，这个过程就是MacOS App提权的过程，主要有下面几种方式：
+在MacOS App开发中，有一些操作需要管理员权限，需要弹出认证对话框让用户输入账号和密码，这个过程就是MacOS App提权的过程，主要有下面几种方式：
 
 
 ## 1. AuthorizationExecuteWithPrivileges()
