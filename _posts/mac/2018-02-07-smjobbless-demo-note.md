@@ -1,6 +1,7 @@
 ---
 layout: post
 title: SMJobBless官方Demo笔记
+subtitle: 2018-02-07-smbjobbless-demo-note
 categories: mac
 tags: note
 author: Jacob Pan
