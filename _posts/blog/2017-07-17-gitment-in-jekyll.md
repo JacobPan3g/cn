@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  在Jekyll博客添加评论系统：gitment篇
+subtitle: https://jacobpan3g.github.io/cn/2017/07/17/gitment-in-jekyll/
 categories: blog
 tags: jekyll gitment
 author: Jacob Pan
