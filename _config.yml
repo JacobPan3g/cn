@@ -8,6 +8,7 @@
 # Site settings
 title: Ja.Code
 brief-intro: 猿修地，时光机
+goal: 致力于成为一位活用前端技术的嵌入式全栈工程师
 #baseurl: "" # the subpath of your site, e.g. /blog
 #url: "https://jacobpan3g.github.io" # the base hostname & protocol for your site
 

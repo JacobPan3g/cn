@@ -1,6 +1,8 @@
 header {
     background: #222;
-    height: 52px;
+    //height: 52px;
+    height: 98px;
+    padding-top: 20px;
     color: #9d9d9d;
     box-shadow: 0 2px 4px 1px rgba(0,0,0,0.5);
     margin-bottom: 20px;
@@ -15,19 +17,26 @@ header {
     .wrapper {
         width: 1140px;
         margin: 0 auto;
-        line-height: 52px;
+        //line-height: 52px;
         .brand {
-            font-size: 18px;
+            font-size: 20px;
+            color: #fff;
         }
         small {
             margin-left: 26px;
-            font-size: 14px;
+            //font-size: 14px;
+            font-size: 12px;
+        }
+        div {
+            color: #3399ff;
+            font-size: 12px;
         }
         .menu{
             display: none;
         }
         nav {
-            float: right;
+            //float: right;
+            text-align: right;
             ul {
                 font-size: 0;
                 margin: 0;
@@ -40,8 +49,9 @@ header {
                     transition: 0.2s ease;
                     a {
                         display: inline-block;
-                        padding: 0 10px;
-                        height: 52px;
+                        //padding: 0 10px;
+                        //height: 52px;
+                        padding: 10px 10px;
                         &:hover {
                             background-color: #000;
                         }
@@ -93,12 +103,13 @@ header {
 }
 @media screen and (max-width: 770px) {
     header {
-        height: 48px;
+        //height: 48px;
+        height: 65px;
         margin-bottom: 15px;
         .wrapper {
             width: 95%;
             margin: 0 auto;
-            line-height: 48px;
+            //line-height: 48px;
             position: relative;
             z-index: 101;
             .brand {
