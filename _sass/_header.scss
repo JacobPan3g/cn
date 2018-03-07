@@ -71,10 +71,11 @@ header {
 }
 @media screen and (max-width:1200px) and (min-width: 770px) {
     header {
-        height: 50px;
+        //height: 50px;
+        height: 98px;
         .wrapper {
             width: 90%;
-            line-height: 50px;
+            //line-height: 50px;
             .brand {
                 font-size: 16px;
             }
@@ -89,8 +90,9 @@ header {
                 ul {
                     li {
                         a {
-                            padding: 0 8px;
-                            height: 50px;
+                            //padding: 0 8px;
+                            //height: 50px;
+                            padding: 10px 10px;
                             i {
                                 margin-right: 4px;
                             }

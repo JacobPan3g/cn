@@ -107,6 +107,13 @@
         padding-left: 10px;
         padding-right: 10px;
         top: 0;
+        .content {
+            background-image: url(https://jacobpan3g.github.io/img/jacob.png);
+            background-size: 35px;
+            background-repeat: no-repeat;
+            background-position-x: right;
+            background-position-y: 5px;
+        }
         .fixed {
             position: fixed;
             top: 20px;
